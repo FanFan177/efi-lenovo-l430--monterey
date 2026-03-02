@@ -49,7 +49,8 @@
 
 
 ## 由Catalina升级的重要注意事项（必须由Catalina升级）（以下事项并行，请完整阅读）
-请先使用来自 [link](hhttps://github.com/yaza-putu/lenovo-thinkpad-l430/) 主分支的Catalina版EFI安装Catalina版系统
+#请先使用来自主分支的Catalina版EFI安装Catalina版系统 [link](https://github.com/yaza-putu/lenovo-thinkpad-l430/)
+#在系统内安装 [link](https://github.com/OpenIntelWireless/HeliPort/) 以连接无线网络，详情见 [link](https://openintelwireless.github.io/) 
 #安装显卡驱动
 苹果已经放弃了对HD 4000显卡的支持，所以在运行补丁前，确保在config.plist中设置：
 - 进入 Misc/Security，找到 SecureBootModel 条目并将其设置为禁用
