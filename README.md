@@ -48,13 +48,15 @@
 - SSDT-ECRW (EC Reading YOGA SMC) (POST Install)
 
 
-## 由Catalina升级的重要注意事项（必须由Catalina升级）
-请先使用来自[link](https://dortania.github.io/OpenCore-Legacy-Patcher/)主分支的Catalina版EFI安装Catalina版系统
+## 由Catalina升级的重要注意事项（必须由Catalina升级）（以下事项并行，请完整阅读）
+#请先使用来自[link](hhttps://github.com/yaza-putu/lenovo-thinkpad-l430)主分支的Catalina版EFI安装Catalina版系统
+#安装显卡驱动
 苹果已经放弃了对HD 4000显卡的支持，所以在运行补丁前，确保在config.plist中设置：
 - 进入 Misc/Security，找到 SecureBootModel 条目并将其设置为禁用
 - 进入NVRAM/Add/7C436110-AB2A-4BBB-A880-FE41995C9F82，找到csr-active-config，设置为030A0000
 - 重启后运行Opencore Legacy Patcher [link](https://dortania.github.io/OpenCore-Legacy-Patcher/) 安装驱动补丁
-- 你在升级macOS Monterey之前需要将SMBIOS改为MacBookPro12,1（先移除ssdt-pm.aml），可以使用OCAT工具[link](https://github.com/ic005k/OCAuxiliaryTools/)进行更改
+#完善电源管理
+-  你在升级macOS Monterey之前需要将SMBIOS改为MacBookPro12,1（先移除ssdt-pm.aml），可以使用OCAT工具[link](https://github.com/ic005k/OCAuxiliaryTools/)进行更改
 - 安装完成后，你需要将 ssdt-pm.aml 复制到 ACPI 文件夹，并将 SMBIOS 设置为 MacBookPro10.2，以实现完美的电源管理
 
 ## Kext驱动改动
