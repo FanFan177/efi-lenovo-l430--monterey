@@ -8,7 +8,7 @@
 ## Monterey 12.6.5
 ![lenovo thinkpad l430](https://res.cloudinary.com/dk0053zbe/image/upload/v1683217467/monterey_gbnihv.png)
 
-## spesifikasi :
+## 测试机型硬件信息 :
 - Opencore版本 1.0.6
 - 测试主机CPU型号 i7 3720QM (Ivy Bridge)
 - 测试主机集成GPU型号 intel hd 4000
@@ -18,24 +18,23 @@
 - Intel 7 Series Chipset
 - Touchpad ELAN
 
-## 正常工作 :
-- iGpu intel HD 4000 (PATCH)
-- USB port
-- Sound Alc269
-- Touchpad
+## 运行情况 :
+- GPU intel HD 4000 (需要手动使用Opencore Legacy Patcher工具安装补丁)
+- USB接口
+- 声卡Alc269
+- 触摸板
 - etc
-- 不完美的睡眠
-- shotdown
-- Restart
-- Must be set SMBIOS MacBookPro12,1 to be install Monterey (on instalations) and SET to MacBookPro10.2 with boot args no_compat_check (POST Istall) to fixing Power management Issue in ivy bridge Monterey (SSDT-PM.aml generated from catalina)
-- 亮度快捷键, Fn + p (亮度加) and Fn + k (b亮度减)
-- Display Port
-- WLAN Intel(R) Centrino(R) Advanced-N 6205
+- 关机功能
+- 重启功能
+- 来自主仓库的电源管理Must be set SMBIOS MacBookPro12,1 to be install Monterey (on instalations) and SET to MacBookPro10.2 with boot args no_compat_check (POST Istall) to fixing Power management Issue in ivy bridge Monterey (SSDT-PM.aml generated from catalina)(！详见后文中的安装说明！)
+- 亮度快捷键, Fn + p (亮度加) and Fn + k (亮度减)
+- 无线网卡 Intel(R) Centrino(R) Advanced-N 6205(不完美，无法实现原生支持)
+- 不完美的睡眠(慎用)
 
 ## 不工作 :
 - VGA port(底层原因无法解决)
 
-## Patch SSDT:
+## Patch SSDT(建议遵照教程或官方文档根据自己的硬件使用工具手动编译，替换除快捷键支持外的SSDT文件):
 - PNLF (Fix Brightness)
 - PM (CPU power management) (POST Install)
 - EC (Fixes the embedded controller)
@@ -48,7 +47,7 @@
 - SSDT-ECRW (EC Reading YOGA SMC) (POST Install)
 
 
-# 由Catalina升级的重要注意事项（必须由Catalina升级）（以下事项并行，请完整阅读）
+# 由Catalina升级的重要注意事项（必须由Catalina升级）（以下事项并行，请完整阅读把握大致信息后逐条设置）
 - 请先使用来自主分支的Catalina版EFI安装Catalina版系统 [link](https://github.com/yaza-putu/lenovo-thinkpad-l430/)
 - 在系统内安装 [heliport](https://github.com/OpenIntelWireless/HeliPort/) 以连接无线网络，详情见 [link](https://openintelwireless.github.io/)
 - 由于网卡驱动原因，建议使用 [聪聪黑苹果工具](https://b23.tv/BV1iE41157Vd)  安装Catalina系统，常规的恢复镜像安装系统的方式会无法联网下载
@@ -61,8 +60,11 @@
 - 安装完成后，你需要将 ssdt-pm.aml 复制到 ACPI 文件夹，并将 SMBIOS 设置为 MacBookPro10.2，以实现完美的电源管理
 
 
-# Kext驱动改动
+# 较原仓库的改动
 - 由AirportItlwm.kext改动为itlwm.kext  V2.3.0 解决中国版Thinkpad L430 使用AirportItlwm.kext时点击网络设置按钮后系统100%死机的问题
+- 更新open core版本
+- 一些杂项设置适配国行版电脑
+- 更加详细的安装步骤和注意事项
 
 
 # Bug
