@@ -2,7 +2,7 @@
 ## This solution is only for Chinese version computers that cannot properly drive Intel network cards, and making an English version of the readme is not considered for now
 
 # 网卡驱动只针对此列表内的网卡
- [link](https://openintelwireless.github.io/itlwm/Compat.html)
+ [link](https://openintelwireless.github.io/itlwm/Compat.html) 原装网卡为瑞昱的机型不支持，建议额外购买黑苹果免驱网卡
 
 # lenovo-thinkpad-l430 
 ## Monterey 12.6.5
